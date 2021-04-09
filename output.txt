@@ -1,0 +1,5 @@
+Elmo --> Census year: 2018 || Block ID: 34 || Property ID: 102133 || Base property ID: 102133 || CLUE small area: Melbourne (CBD) || Industry (ANZSIC4) code: 7000 || Industry (ANZSIC4) description: Computer System Design and Related Services || x coordinate: 144.96217 || y coordinate: -37.81616 || Location: (-37.81616143, 144.962171) || 
+In A Rush Espresso --> Census year: 2018 || Block ID: 1101 || Property ID: 108973 || Base property ID: 108973 || CLUE small area: Docklands || Industry (ANZSIC4) code: 4511 || Industry (ANZSIC4) description: Cafes and Restaurants || x coordinate: 144.95223 || y coordinate: -37.81761 || Location: (-37.81761044, 144.9522269) || 
+In A Rush Espresso --> Census year: 2018 || Block ID: 44 || Property ID: 105956 || Base property ID: 105956 || CLUE small area: Melbourne (CBD) || Industry (ANZSIC4) code: 4511 || Industry (ANZSIC4) description: Cafes and Restaurants || x coordinate: 144.96174 || y coordinate: -37.81561 || Location: (-37.81560561, 144.9617411) || 
+ERROR --> NOTFOUND
+

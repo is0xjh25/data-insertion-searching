@@ -11,7 +11,7 @@
 The dataset comes from the City of Melbourne Open Data website,\
 which provides a variety of data about Melbourne that you can explore and visualize online:\
 https://data.melbourne.vic.gov.au/ \
-The dataset used in this project is a subset of the Business establishment trading name and industry classification 2018 dataset, accessed from: \ https://data.melbourne.vic.gov.au/Business/Business-establishment-trading-name-and-industry-c/vesm- c7r2
+The dataset used in this project is a subset of the Business establishment trading name and industry classification 2018 dataset, accessed from: \ https://data.melbourne.vic.gov.au/Business/Business-establishment-trading-name-and-industry-c/vesm-c7r2
 
 Census year - the year in which surveying was completed (2018)\
 Block ID - an ID number to identify city blocks (about 606 in total)\
@@ -37,8 +37,8 @@ Your dict program should:\
 • Your program will look up each key and output the information (the data found) to the output file specified by the second command line parameter. If the key is not found in the tree, you must output the word NOTFOUND.
 
 For testing, it may be convenient to create a file of keys to be searched, one per line, and redirect the input from this file. Use the UNIX operator < to redirect input from a file.\
-Examples of use:\
-• dict datafile outputfile then type in keys; or\ 
+Examples of use: \
+• dict datafile outputfile then type in keys; or \ 
 • dict datafile outputfile < keyfile
 
 ***

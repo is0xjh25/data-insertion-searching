@@ -36,6 +36,23 @@ Your dict program should:\
 • Search the linked list for records, based on keys. The keys will be read in from stdin, i.e. from the screen. Remember that the entries in the file do not necessarily have unique keys, so your search must locate all keys matching the search key, and output all the data found.\
 • Your program will look up each key and output the information (the data found) to the output file specified by the second command line parameter. If the key is not found in the tree, you must output the word NOTFOUND.
 
-***
+---
+### Command Line
+mdict datafile outputfile < keyfile\
+
+### Example Output
+#### _records in output.txt_
+In a Rush Espresso −−>Census year: 2018 || Block ID: 44 || Property ID: 105956 ||\
+Base property ID: 105956 || CLUE small area: Melbourne (CBD) || Industry (ANZSIC4) code: 4511 ||\
+Industry (ANZSIC4) description: Cafes and Restaurants || x coordinate: 144.96174 ||\
+y coordinate: -37.81561 b|| Location: (-37.81560561, 144.9617411) ||\
+
+In a Rush Espresso −− > Census year: 2018 || Block ID: 1101 || Property ID: 108973 ||\
+Base property ID: 108973 || CLUE small area: Docklands || Industry (ANZSIC4) code: 4511 ||\
+Industry (ANZSIC4) description: Cafes and Restaurants || x coordinate: 144.95223 ||\
+y coordinate: -37.81761 || Location: (-37.81761044, 144.9522269) ||\
+
+Tim Hortons −− > NOTFOUND
+---
 _more details in project specification!_
 

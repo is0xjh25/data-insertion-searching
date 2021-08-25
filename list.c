@@ -30,199 +30,116 @@ void createField(char *line, char *fields[]) {
 struct node* createItem(char *line) {
 
 	int i = 0;
-	int j = 0;
-	int n = 0;
-	int quoteItem = FALSE;
-	int stringSize = 0;
+	int quote = 0;
+	int charIndex = 0;
+	int field = 0;
+	char *string = (char*) malloc(sizeof(char) * STRINGMAXCHAR);
 
-	struct node* item = (struct node*)malloc(sizeof(struct node)*1);
+	struct listNode *item = (struct listNode*) malloc(sizeof(struct listNode));
 	assert(item);
 
-	/* Ensures each new node is pointing to null */
 	item->next = NULL;
 
-	/* Reads in the data of each field */
-	for (i = 0; i < NUMBEROFFIELD; i++) {
+	for (i = 0;i < strlen(line);i++){
 
-		char* temp = (char*)calloc(1, sizeof(char)*(STRINGMAXCHAR+1));
-		assert(temp);
-		n = 0;
-		/* Decides what is the format of string */
-		if (quoteItem == FALSE) {
-			while (line[j] != COMMA) {
-				temp[n] = line[j];
-				j++;
-				n++;
-			}
-
-			/* Reading finished, decides what is the format of next string */
-			if (line[j] == COMMA && line[j+1] == QUOTE) {
-				quoteItem = TRUE;
-				j += 2;
-			} else {
-				j++;
-			}
-		}
-		else if (quoteItem == TRUE) {
-			while ((line[j] != QUOTE || line[j+1] != COMMA) &&
-					(line[j] != ENDPARENTHESIS || line[j+1] != QUOTE)){
-				/* Double quote situation */
-				if (line[j] == QUOTE && line[j+1] == QUOTE) {
-					temp[n] = line[j];
-					j += 2;
-					n++;
-				} else {
-					temp[n] = line[j];
-					j++;
-					n++;
-				}
-			}
-
-			/* Special case: The last field (location) */
-			if (i == 10) {
-			temp[n] = line[j];
-			}
-
-			/* Reading finished, decides what is the format of next string */
-			if (line[j+2] != QUOTE) {
-				quoteItem = FALSE;
-				j += 2;
-			} else {
-				quoteItem = TRUE;
-				j += 3;
-			}
+		if (line[i] == QUOTE){
+			quote++;
 		}
 
-		/* Reallocates to proper size and stores in the correspondind filed */
-		stringSize = strlen(temp)+1;
-		temp = (char*)realloc(temp, sizeof(char)*stringSize);
-		assert(temp);
+		if (line[i] == COMMA && quote%2 == 0){
+			string[charIndex] = TERMINATE;
+			string = createTerm(string);
 
-		switch(i) {
+		switch(field){
 			case 0:
-				item->census_year =
-				(char*)malloc(sizeof(char)*stringSize);
-				assert(item->census_year);
-				strcpy(item->census_year, temp);
+				item->censusYear =
+					(char*) malloc(sizeof(char) * (strlen(string) + 1));
+				assert(item->censusYear);
+				strcpy(item->censusYear, string);
 				break;
-
-			case 1: item->block_id =
-				(char*)malloc(sizeof(char)*stringSize);
-				assert(item->block_id);
-				strcpy(item->block_id, temp);
+			case 1:
+				item->blockID =
+					(char*) malloc(sizeof(char) * (strlen(string) + 1));
+				assert(item->blockID);
+				strcpy(item->blockID, string);
 				break;
-
-			case 2: item->property_id =
-				(char*)malloc(sizeof(char)*stringSize);
-				assert(item->property_id);
-				strcpy(item->property_id, temp);
+			case 2:
+				item->propertyID =
+					(char*) malloc(sizeof(char) * (strlen(string) + 1));
+				assert(item->propertyID);
+				strcpy(item->propertyID, string);
 				break;
-
-			case 3: item->base_property_id =
-				(char*)malloc(sizeof(char)*stringSize);
-				assert(item->base_property_id);
-				strcpy(item->base_property_id, temp);
+			case 3:
+				item->basePropertyID =
+					(char*) malloc(sizeof(char) * (strlen(string) + 1));
+				assert(item->basePropertyID);
+				strcpy(item->basePropertyID, string);
 				break;
-
-			case 4: item->clue_small_area =
-				(char*)malloc(sizeof(char)*stringSize);
-				assert(item->clue_small_area);
-				strcpy(item->clue_small_area, temp);
+			case 4:
+				item->clueSmallArea =
+					(char*) malloc (sizeof(char) * (strlen(string) + 1));
+				assert(item->clueSmallArea);
+				strcpy(item->clueSmallArea,string);
 				break;
-
-			case 5: item->trading_name =
-				(char*)malloc(sizeof(char)*stringSize);
-				assert(item->trading_name);
-				strcpy(item->trading_name, temp);
+			case 5:
+				item->tradingName =
+					(char*) malloc(sizeof(char) * (strlen(string) + 1));
+				assert(item->tradingName);
+				strcpy(item->tradingName, string);
 				break;
-
-			case 6: item->industry_code =
-				(char*)malloc(sizeof(char)*stringSize);
-				assert(item->industry_code);
-				strcpy(item->industry_code, temp);
+			case 6:
+				item->industryCode =
+					(char*) malloc(sizeof(char) * (strlen(string) + 1));
+				assert(item->industryCode);
+				strcpy(item->industryCode, string);
 				break;
-
-			case 7: item->industry_description =
-				(char*)malloc(sizeof(char)*stringSize);
-				assert(item->industry_description);
-				strcpy(item->industry_description, temp);
+			case 7:
+				item->industryDescription =
+					(char*) malloc(sizeof(char) * (strlen(string) + 1));
+				assert(item->industryDescription);
+				strcpy(item->industryDescription, string);
 				break;
-
-			case 8: item->x_coordinate =
-				(char*)malloc(sizeof(char)*stringSize);
-				assert(item->x_coordinate);
-				strcpy(item->x_coordinate, temp);
+			case 8:
+				item->xCoordinate =
+					(char*) malloc(sizeof(char) * (strlen(string) + 1));
+				assert(item->xCoordinate);
+				strcpy(item->xCoordinate, string);
 				break;
-
-			case 9: item->y_coordinate =
-				(char*)malloc(sizeof(char)*stringSize);
-				assert(item->y_coordinate);
-				strcpy(item->y_coordinate, temp);
+			case 9:
+				item->yCoordinate =
+					(char*) malloc(sizeof(char) * (strlen(string) + 1));
+				assert(item->yCoordinate);
+				strcpy(item->yCoordinate, string);
 				break;
-
-			case 10: item->location =
-				(char*)malloc(sizeof(char)*stringSize);
-				assert(item->location);
-				strcpy(item->location, temp);
-				break;
-
-			default: printf("DATA FORMAT ERROR!");
-				exit(1);
-				break;
-		}
-		free(temp);
-	}
-	return item;
-}
-
-struct node* creatList(struct node *list, struct node *item){
-	item->next = list;
-	list = item;
-	return list;
-}
-
-struct node* search(struct node *list, char *key) {
-
-	if (list == NULL){
-        return NULL;
-	}
-    if (strcmp(list->trading_name, key) == 0) {
-		return list;
-	}
-
-    return search(list->next, key);
-}
-
-void searchAll(FILE *outputFile, struct node *list, char **key,
-		int keyCount, char **fields){
-
-	int i = 0;
-	struct node* searchResult = NULL;
-
-	while (i < keyCount) {
-		searchResult = search(list, key[i]);
-
-		if (searchResult == NULL) {
-			notFoundPrintOut(outputFile, key[i]);
-
-		}else{
-			foundPrintOut(outputFile, searchResult, fields);
-			searchResult = searchResult->next;
-
-			while (searchResult != NULL) {
-				searchResult = search(searchResult, key[i]);
-
-				if (searchResult == NULL){
-					break;
-
-				}else{
-					foundPrintOut(outputFile, searchResult, fields);
-					searchResult = searchResult->next;
-				}
 			}
+
+			field++;
+			charIndex = 0;
 		}
-		i++;
+
+		/* The situation of last field (location) */
+		else if (line[i] == NEXTLINE || i == strlen(line) - 1){
+			if (line[i] == NEXTLINE){
+				string[charIndex] = TERMINATE;
+			} else {
+				string[charIndex++] = line[i];
+				string[charIndex] = TERMINATE;
+			}
+			string = createTerm(string);
+			item->location = (char*) malloc(sizeof(char) *
+				(strlen(string) + 1));
+			assert(item->location);
+			strcpy(item->location, string);
+		}
+		/* Do nothing with carrage return ('\r') */
+		else if (line[i] == CARRIAGERETURN){
+		} else {
+			string[charIndex++] = line[i];
+		}
 	}
+
+	free(string);
+	return item;
 }
 
 void foundPrintOut(FILE *outputFile, struct node *searchResult, char **fields) {

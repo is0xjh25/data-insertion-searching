@@ -45,14 +45,15 @@ mdict datafile outputfile < keyfile\
 In a Rush Espresso −−>Census year: 2018 || Block ID: 44 || Property ID: 105956 ||\
 Base property ID: 105956 || CLUE small area: Melbourne (CBD) || Industry (ANZSIC4) code: 4511 ||\
 Industry (ANZSIC4) description: Cafes and Restaurants || x coordinate: 144.96174 ||\
-y coordinate: -37.81561 b|| Location: (-37.81560561, 144.9617411) ||\
+y coordinate: -37.81561 b|| Location: (-37.81560561, 144.9617411) ||
 
 In a Rush Espresso −− > Census year: 2018 || Block ID: 1101 || Property ID: 108973 ||\
 Base property ID: 108973 || CLUE small area: Docklands || Industry (ANZSIC4) code: 4511 ||\
 Industry (ANZSIC4) description: Cafes and Restaurants || x coordinate: 144.95223 ||\
-y coordinate: -37.81761 || Location: (-37.81761044, 144.9522269) ||\
+y coordinate: -37.81761 || Location: (-37.81761044, 144.9522269) ||
 
 Tim Hortons −− > NOTFOUND
+
 ---
 _more details in project specification!_
 

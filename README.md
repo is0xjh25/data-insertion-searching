@@ -38,7 +38,7 @@ Your dict program should:\
 
 ---
 ### Command Line
-mdict datafile outputfile < keyfile\
+mdict datafile outputfile < keyfile
 
 ### Example Output
 #### _records in output.txt_

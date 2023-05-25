@@ -55,5 +55,5 @@ y coordinate: -37.81761 || Location: (-37.81761044, 144.9522269) ||
 Tim Hortons −− > NOTFOUND
 
 ---
-_more details in project specification!_
+_*more details in [project specification](https://github.com/is0xjh25/data-insertion-searching/blob/main/assignment1.pdf)._
 
